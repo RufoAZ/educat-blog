@@ -1,32 +1,56 @@
 {
   "blogs": [
     {
-      "id": "blog_1700000000000_sample1",
-      "title": "Türkiyədə Universitetə Necə Daxil Olunur?",
-      "excerpt": "Türkiyə universitetlərinə qəbul prosesi, lazımi sənədlər və ən çox seçilən ixtisaslar haqqında ətraflı məlumat.",
-      "content": "<p>Türkiyə universitetlərinə qəbul prosesi bir neçə mərhələdən ibarətdir. Bu yazıda sizə addım-addım bütün prosesi izah edəcəyik.</p><h2>Lazımi Sənədlər</h2><ul><li>Attestat (apostil edilmiş)</li><li>Pasport surəti</li><li>Foto</li><li>TYS sertifikatı (Türk dili)</li></ul><h2>Qəbul Prosesi</h2><p>Sənədlər hazır olduqdan sonra universitet seçimi həyata keçirilir. EduCat komandası sizə 30+ tərəfdaş universitetimiz arasından ən uyğununu tapır.</p><p>Müraciət müddəti adətən İyul-Sentyabr ayları arasındadır.</p>",
-      "category": "Türkiyə",
-      "coverImage": "",
-      "tags": ["türkiyə", "qəbul", "sənədlər"],
-      "published": true,
-      "createdAt": "2024-01-15T10:00:00.000Z",
-      "updatedAt": "2024-01-15T10:00:00.000Z",
-      "publishedAt": "2024-01-15T10:00:00.000Z",
-      "views": 47
+      "id": "blog_1775340383607_sd55nr",
+      "title": "elmeddinin nagili",
+      "content": "slam necesen ne var ne yox ne edirsen etmirsenisler necedi",
+      "excerpt": "ele bel mirta bir sey",
+      "category": "Ümumi",
+      "coverImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSk_BSn7RR0Pr5lN0nv2cPXhqaXRY5eXxMLWw&s",
+      "tags": [
+        "turkiye baki sirab"
+      ],
+      "published": false,
+      "createdAt": "2026-04-04T22:06:23.607Z",
+      "updatedAt": "2026-04-04T22:06:23.607Z",
+      "publishedAt": null,
+      "views": 0
     },
     {
       "id": "blog_1700000000001_sample2",
-      "title": "Polşada Qrant İmkanları 2025",
-      "excerpt": "Polşa hökuməti tərəfindən təqdim olunan qrant proqramları və Azərbaycan tələbələri üçün imkanlar.",
-      "content": "<p>Polşa Avropa İttifaqının ən sürətlə inkişaf edən ölkələrindən biridir. Azərbaycan tələbələri üçün burada əla qrant imkanları mövcuddur.</p><h2>Əsas Qrant Proqramları</h2><p>Polşa hökuməti hər il xarici tələbələrə çoxsaylı qrantlar təqdim edir.</p><h2>Müraciət Şərtləri</h2><ul><li>Yüksək akademik nəticələr</li><li>İngilis dili biliyi (B2 səviyyə)</li><li>Motivasiya məktubu</li></ul>",
-      "category": "Polşa",
+      "title": "PolÅada Qrant Ä°mkanlarÄ± 2025",
+      "excerpt": "PolÅa hÃ¶kumÉti tÉrÉfindÉn tÉqdim olunan qrant proqramlarÄ± vÉ AzÉrbaycan tÉlÉbÉlÉri Ã¼Ã§Ã¼n imkanlar.",
+      "content": "<p>PolÅa Avropa Ä°ttifaqÄ±nÄ±n Én sÃ¼rÉtlÉ inkiÅaf edÉn Ã¶lkÉlÉrindÉn biridir. AzÉrbaycan tÉlÉbÉlÉri Ã¼Ã§Ã¼n burada Éla qrant imkanlarÄ± mÃ¶vcuddur.</p><h2>Æsas Qrant ProqramlarÄ±</h2><p>PolÅa hÃ¶kumÉti hÉr il xarici tÉlÉbÉlÉrÉ Ã§oxsaylÄ± qrantlar tÉqdim edir.</p><h2>MÃ¼raciÉt ÅÉrtlÉri</h2><ul><li>YÃ¼ksÉk akademik nÉticÉlÉr</li><li>Ä°ngilis dili biliyi (B2 sÉviyyÉ)</li><li>Motivasiya mÉktubu</li></ul>",
+      "category": "PolÅa",
       "coverImage": "",
-      "tags": ["polşa", "qrant", "avropa"],
+      "tags": [
+        "polÅa",
+        "qrant",
+        "avropa"
+      ],
       "published": true,
       "createdAt": "2024-02-01T09:00:00.000Z",
       "updatedAt": "2024-02-01T09:00:00.000Z",
       "publishedAt": "2024-02-01T09:00:00.000Z",
       "views": 31
+    },
+    {
+      "id": "blog_1700000000000_sample1",
+      "title": "TÃ¼rkiyÉdÉ UniversitetÉ NecÉ Daxil Olunur?",
+      "excerpt": "TÃ¼rkiyÉ universitetlÉrinÉ qÉbul prosesi, lazÄ±mi sÉnÉdlÉr vÉ Én Ã§ox seÃ§ilÉn ixtisaslar haqqÄ±nda ÉtraflÄ± mÉlumat.",
+      "content": "<p>TÃ¼rkiyÉ universitetlÉrinÉ qÉbul prosesi bir neÃ§É mÉrhÉlÉdÉn ibarÉtdir. Bu yazÄ±da sizÉ addÄ±m-addÄ±m bÃ¼tÃ¼n prosesi izah edÉcÉyik.</p><h2>LazÄ±mi SÉnÉdlÉr</h2><ul><li>Attestat (apostil edilmiÅ)</li><li>Pasport surÉti</li><li>Foto</li><li>TYS sertifikatÄ± (TÃ¼rk dili)</li></ul><h2>QÉbul Prosesi</h2><p>SÉnÉdlÉr hazÄ±r olduqdan sonra universitet seÃ§imi hÉyata keÃ§irilir. EduCat komandasÄ± sizÉ 30+ tÉrÉfdaÅ universitetimiz arasÄ±ndan Én uyÄununu tapÄ±r.</p><p>MÃ¼raciÉt mÃ¼ddÉti adÉtÉn Ä°yul-Sentyabr aylarÄ± arasÄ±ndadÄ±r.</p>",
+      "category": "TÃ¼rkiyÉ",
+      "coverImage": "",
+      "tags": [
+        "tÃ¼rkiyÉ",
+        "qÉbul",
+        "sÉnÉdlÉr"
+      ],
+      "published": true,
+      "createdAt": "2024-01-15T10:00:00.000Z",
+      "updatedAt": "2024-01-15T10:00:00.000Z",
+      "publishedAt": "2024-01-15T10:00:00.000Z",
+      "views": 47
     }
   ]
 }
