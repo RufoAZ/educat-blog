@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — EduCat | Xaricdə Təhsil</title>
+<meta name="description" content="Xaricdə təhsil, qrant imkanları, universitetlər haqqında faydalı məqalələr.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* ── CONFIG: buraya öz repo adını yaz ── */
+  /* GITHUB_USER və GITHUB_REPO aşağıdakı script-də */
+
+  :root {
+    --ink:     #0C1A2E;
+    --ink2:    #1E3A5F;
+    --gold:    #C8962E;
+    --gold2:   #F5A623;
+    --cream:   #FDFAF5;
+    --warm:    #F2EDE4;
+    --border:  #E0D8CC;
+    --muted:   #8A8070;
+    --red:     #C0392B;
+    --serif:   'Cormorant Garamond', Georgia, serif;
+    --sans:    'Outfit', system-ui, sans-serif;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--cream);
+    color: var(--ink);
+    min-height: 100vh;
+  }
+
+  /* ── NAV ── */
+  nav {
+    background: var(--ink);
+    position: sticky; top: 0; z-index: 100;
+    border-bottom: 2px solid var(--gold);
+  }
+  .nav-inner {
+    max-width: 1180px; margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 62px;
+  }
+  .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .logo img { height: 34px; border-radius: 5px; }
+  .logo-name { font-family: var(--serif); font-size: 1.4rem; font-weight: 700; color: #fff; letter-spacing: .02em; }
+  .logo-tag  { font-size: .6rem; color: var(--gold); text-transform: uppercase; letter-spacing: .12em; font-weight: 500; }
+  .nav-links { display: flex; gap: 1.8rem; align-items: center; }
+  .nav-links a { color: rgba(255,255,255,.65); text-decoration: none; font-size: .85rem; font-weight: 500; transition: color .2s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--gold2); }
+  .nav-cta { background: var(--gold); color: var(--ink) !important; font-weight: 600 !important; padding: .45rem 1.1rem; border-radius: 6px; transition: background .2s !important; }
+  .nav-cta:hover { background: var(--gold2) !important; }
+
+  /* ── MASTHEAD ── */
+  .masthead {
+    background: var(--ink);
+    padding: 4.5rem 1.5rem 3.5rem;
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .masthead::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 100%, rgba(200,150,46,.12), transparent);
+    pointer-events: none;
+  }
+  /* decorative lines */
+  .masthead::after {
+    content: '';
+    position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+    width: 120px; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .masthead-eyebrow {
+    display: inline-flex; align-items: center; gap: .6rem;
+    border: 1px solid rgba(200,150,46,.4);
+    color: var(--gold); font-size: .72rem; font-weight: 600;
+    letter-spacing: .12em; text-transform: uppercase;
+    padding: .3rem 1rem; border-radius: 50px;
+    margin-bottom: 1.4rem;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.4rem, 5.5vw, 4rem);
+    font-weight: 700; color: #fff;
+    line-height: 1.12; margin-bottom: .9rem;
+  }
+  .masthead h1 em { color: var(--gold2); font-style: italic; }
+  .masthead p {
+    color: rgba(255,255,255,.55); font-size: 1rem;
+    max-width: 500px; margin: 0 auto; line-height: 1.75;
+  }
+
+  /* ── TOOLBAR ── */
+  .toolbar {
+    max-width: 1180px; margin: 2rem auto 0;
+    padding: 0 1.5rem;
+    display: flex; flex-wrap: wrap; gap: 1rem; align-items: center;
+  }
+  .filter-group { display: flex; flex-wrap: wrap; gap: .4rem; flex: 1; }
+  .pill {
+    padding: .35rem .9rem; border-radius: 50px;
+    border: 1.5px solid var(--border);
+    background: transparent; color: var(--muted);
+    font-size: .78rem; font-weight: 500;
+    cursor: pointer; transition: all .18s;
+    font-family: var(--sans);
+  }
+  .pill:hover { border-color: var(--ink2); color: var(--ink); }
+  .pill.on { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .search-box {
+    position: relative;
+  }
+  .search-box svg { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); pointer-events: none; }
+  .search-input {
+    padding: .4rem 1rem .4rem 2.2rem;
+    border: 1.5px solid var(--border); border-radius: 50px;
+    background: #fff; color: var(--ink);
+    font-size: .82rem; font-family: var(--sans);
+    outline: none; width: 220px; transition: border-color .2s;
+  }
+  .search-input:focus { border-color: var(--ink2); }
+  .search-input::placeholder { color: var(--muted); }
+
+  /* ── GRID ── */
+  .grid-wrap { max-width: 1180px; margin: 2.5rem auto 5rem; padding: 0 1.5rem; }
+
+  /* Featured */
+  .featured {
+    display: grid; grid-template-columns: 5fr 4fr;
+    background: #fff; border: 1px solid var(--border);
+    border-radius: 16px; overflow: hidden;
+    box-shadow: 0 4px 24px rgba(12,26,46,.07);
+    margin-bottom: 2.5rem; cursor: pointer;
+    transition: box-shadow .25s, transform .25s;
+  }
+  .featured:hover { box-shadow: 0 12px 40px rgba(12,26,46,.13); transform: translateY(-3px); }
+  .feat-img {
+    background: var(--ink);
+    min-height: 300px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 6rem; position: relative; overflow: hidden;
+  }
+  .feat-img img { width: 100%; height: 100%; object-fit: cover; }
+  .feat-img::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(135deg, transparent 50%, rgba(200,150,46,.1));
+  }
+  .feat-body { padding: 2.8rem 2.4rem; display: flex; flex-direction: column; justify-content: center; }
+  .feat-cat {
+    display: inline-block;
+    background: rgba(200,150,46,.12); color: var(--gold);
+    font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+    padding: .2rem .7rem; border-radius: 4px;
+    margin-bottom: 1.1rem; width: fit-content;
+    border-left: 3px solid var(--gold);
+  }
+  .feat-body h2 { font-family: var(--serif); font-size: 1.8rem; line-height: 1.2; margin-bottom: .8rem; color: var(--ink); }
+  .feat-body p { color: var(--muted); line-height: 1.75; font-size: .9rem; margin-bottom: 1.6rem; }
+  .feat-meta { font-size: .75rem; color: var(--muted); display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.2rem; }
+  .read-btn {
+    display: inline-flex; align-items: center; gap: .5rem;
+    background: var(--ink); color: #fff;
+    font-size: .82rem; font-weight: 600;
+    padding: .55rem 1.3rem; border-radius: 7px;
+    text-decoration: none; width: fit-content;
+    transition: background .2s;
+  }
+  .read-btn:hover { background: var(--ink2); }
+
+  /* Section label */
+  .section-bar { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.4rem; }
+  .section-bar h2 { font-family: var(--serif); font-size: 1.35rem; color: var(--ink); }
+  .section-bar .line { flex: 1; height: 1px; background: var(--border); }
+  .section-bar .cnt { font-size: .75rem; font-weight: 600; color: var(--muted); background: var(--warm); padding: .2rem .7rem; border-radius: 50px; border: 1px solid var(--border); }
+
+  /* Cards */
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.4rem; }
+
+  .card {
+    background: #fff; border: 1px solid var(--border);
+    border-radius: 13px; overflow: hidden;
+    cursor: pointer; transition: all .22s;
+    box-shadow: 0 2px 10px rgba(12,26,46,.04);
+    animation: rise .4s ease both;
+  }
+  .card:hover { transform: translateY(-5px); box-shadow: 0 14px 35px rgba(12,26,46,.11); border-color: var(--gold); }
+  @keyframes rise { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)} }
+
+  .card-thumb {
+    height: 175px; background: var(--ink);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 3.2rem; position: relative; overflow: hidden;
+  }
+  .card-thumb img { width: 100%; height: 100%; object-fit: cover; }
+  .card-thumb::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(12,26,46,.35), transparent 50%); }
+  .cat-chip {
+    position: absolute; top: 10px; left: 10px; z-index: 2;
+    background: var(--gold); color: var(--ink);
+    font-size: .65rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+    padding: .18rem .55rem; border-radius: 4px;
+  }
+  .new-chip {
+    position: absolute; top: 10px; right: 10px; z-index: 2;
+    background: var(--red); color: #fff;
+    font-size: .62rem; font-weight: 700;
+    padding: .18rem .5rem; border-radius: 4px;
+  }
+  .card-body { padding: 1.3rem 1.4rem 1.2rem; }
+  .card-body h3 { font-family: var(--serif); font-size: 1.1rem; line-height: 1.3; color: var(--ink); margin-bottom: .55rem; }
+  .card-body p  { font-size: .8rem; color: var(--muted); line-height: 1.65; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; margin-bottom: 1rem; }
+  .card-foot { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--border); padding-top: .8rem; }
+  .card-date { font-size: .72rem; color: var(--muted); }
+  .card-views { font-size: .72rem; color: var(--muted); }
+  .arrow-btn { width: 30px; height: 30px; border-radius: 50%; background: var(--warm); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; transition: all .2s; }
+  .card:hover .arrow-btn { background: var(--ink); border-color: var(--ink); }
+  .card:hover .arrow-btn svg path { stroke: #fff; }
+
+  /* States */
+  .loading-wrap { text-align: center; padding: 5rem 1rem; }
+  .spinner { width: 38px; height: 38px; border: 3px solid var(--border); border-top-color: var(--gold); border-radius: 50%; animation: spin .75s linear infinite; margin: 0 auto 1rem; }
+  @keyframes spin { to{transform:rotate(360deg)} }
+  .empty-wrap { text-align: center; padding: 4rem 1rem; }
+  .empty-wrap .icon { font-size: 3rem; margin-bottom: 1rem; }
+  .empty-wrap h3 { font-family: var(--serif); font-size: 1.4rem; color: var(--ink); margin-bottom: .5rem; }
+  .empty-wrap p { color: var(--muted); font-size: .88rem; }
+
+  /* Footer */
+  footer { background: var(--ink); border-top: 2px solid var(--gold); padding: 2rem 1.5rem; text-align: center; }
+  footer p { color: rgba(255,255,255,.4); font-size: .8rem; }
+  footer a { color: var(--gold2); text-decoration: none; }
+
+  @media (max-width: 800px) {
+    .featured { grid-template-columns: 1fr; }
+    .feat-img { min-height: 200px; }
+    .nav-links { display: none; }
+    .cards { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="https://educatcompany.com/" class="logo">
+      <img src="https://educatcompany.com/image/logo.jpg" alt="EduCat" onerror="this.style.display='none'">
+      <div>
+        <div class="logo-name">EduCat</div>
+        <div class="logo-tag">Xaricdə Təhsil</div>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="https://educatcompany.com/#olkeler">Ölkələr</a>
+      <a href="https://educatcompany.com/#xidmetler">Xidmətlər</a>
+      <a href="https://educatcompany.com/#paketler">Paketlər</a>
+      <a href="#" class="active">Blog</a>
+      <a href="https://educatcompany.com/#elaqe" class="nav-cta">Pulsuz Konsultasiya</a>
+    </div>
+  </div>
+</nav>
+
+<div class="masthead">
+  <div class="masthead-eyebrow">📚 EduCat Blog</div>
+  <h1>Xaricdə Təhsil Haqqında<br><em>Hər Şeyi Öyrən</em></h1>
+  <p>Universitetlər, qrantlar, viza prosesləri və tələbə həyatı haqqında ekspert məqalələri.</p>
+</div>
+
+<div class="toolbar">
+  <div class="filter-group" id="filterGroup">
+    <button class="pill on" onclick="setFilter('all',this)">Hamısı</button>
+  </div>
+  <div class="search-box">
+    <svg width="14" height="14" fill="none" stroke="#8A8070" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+    <input class="search-input" type="text" placeholder="Axtarış..." oninput="onSearch(this.value)">
+  </div>
+</div>
+
+<div class="grid-wrap">
+  <div id="loadingWrap" class="loading-wrap">
+    <div class="spinner"></div>
+    <div style="color:var(--muted);font-size:.85rem">Bloglar yüklənir...</div>
+  </div>
+  <div id="mainContent" style="display:none">
+    <div id="featuredSlot"></div>
+    <div class="section-bar">
+      <h2>Bütün Məqalələr</h2>
+      <div class="line"></div>
+      <div class="cnt" id="cntBadge">0 məqalə</div>
+    </div>
+    <div class="cards" id="cardsGrid"></div>
+    <div class="empty-wrap" id="emptyWrap" style="display:none">
+      <div class="icon">🔍</div>
+      <h3>Nəticə Tapılmadı</h3>
+      <p>Başqa açar söz və ya kateqoriya sınayın.</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2025 <a href="https://educatcompany.com/">EduCat</a> — Xaricdə Təhsil Konsaltinq | Bakı, Azərbaycan</p>
+</footer>
+
+<script>
+  // ══════════════════════════════════════════
+  //  ⚙️  BU İKİ DƏYİŞƏNİ DƏYİŞDİR
+  const GITHUB_USER = 'RufoAZ';   // ← GitHub istifadəçi adın
+  const GITHUB_REPO = 'educat-blog';             // ← Repo adı
+  // ══════════════════════════════════════════
+
+  const CDN = `https://cdn.jsdelivr.net/gh/${RufoAZ}/${educat-blog}@main/blogs.json`;
+  // Cache-buster: hər yükləmədə təzə data
+  const DATA_URL = CDN + '?t=' + Math.floor(Date.now() / 60000);
+
+  const EMOJIS = { 'Türkiyə':'🇹🇷','Polşa':'🇵🇱','Ukrayna':'🇺🇦','Almaniya':'🇩🇪','Çexiya':'🇨🇿','Macarıstan':'🇭🇺','Amerika':'🇺🇸','Qrant':'🏅','Visa':'✈️','Ümumi':'📖' };
+
+  let all = [], activeFilter = 'all', query = '';
+
+  async function init() {
+    try {
+      const r = await fetch(DATA_URL);
+      if (!r.ok) throw new Error();
+      const d = await r.json();
+      all = (d.blogs || []).filter(b => b.published).sort((a,b) => new Date(b.createdAt) - new Date(a.createdAt));
+    } catch {
+      all = [];
+    }
+    buildFilters();
+    render();
+    document.getElementById('loadingWrap').style.display = 'none';
+    document.getElementById('mainContent').style.display = 'block';
+  }
+
+  function buildFilters() {
+    const cats = [...new Set(all.map(b => b.category))].filter(Boolean);
+    const g = document.getElementById('filterGroup');
+    cats.forEach(c => {
+      const btn = document.createElement('button');
+      btn.className = 'pill';
+      btn.textContent = (EMOJIS[c] || '📄') + ' ' + c;
+      btn.onclick = () => setFilter(c, btn);
+      g.appendChild(btn);
+    });
+  }
+
+  function setFilter(val, btn) {
+    activeFilter = val;
+    document.querySelectorAll('.pill').forEach(b => b.classList.remove('on'));
+    btn.classList.add('on');
+    render();
+  }
+
+  function onSearch(v) { query = v.toLowerCase(); render(); }
+
+  function filtered() {
+    return all.filter(b => {
+      const cat = activeFilter === 'all' || b.category === activeFilter;
+      const q = !query || b.title.toLowerCase().includes(query) || (b.excerpt||'').toLowerCase().includes(query) || (b.tags||[]).join(' ').toLowerCase().includes(query);
+      return cat && q;
+    });
+  }
+
+  function render() {
+    const list = filtered();
+    const featSlot = document.getElementById('featuredSlot');
+    const grid = document.getElementById('cardsGrid');
+    const empty = document.getElementById('emptyWrap');
+    const cnt = document.getElementById('cntBadge');
+
+    let cards = list;
+    if (activeFilter === 'all' && !query && list.length > 0) {
+      featSlot.innerHTML = featuredHTML(list[0]);
+      featSlot.style.display = 'block';
+      cards = list.slice(1);
+    } else {
+      featSlot.style.display = 'none';
+    }
+
+    cnt.textContent = cards.length + ' məqalə';
+    grid.innerHTML = cards.map((b,i) => cardHTML(b,i)).join('');
+
+    empty.style.display = list.length === 0 ? 'block' : 'none';
+    grid.style.display  = list.length === 0 ? 'none' : 'grid';
+  }
+
+  function featuredHTML(b) {
+    const emoji = EMOJIS[b.category] || '📖';
+    const isNew = daysDiff(b.publishedAt||b.createdAt) < 7;
+    return `
+    <div class="featured" onclick="openPost('${b.id}')">
+      <div class="feat-img">${b.coverImage ? `<img src="${b.coverImage}" alt="${esc(b.title)}">` : `<span style="position:relative;z-index:1">${emoji}</span>`}</div>
+      <div class="feat-body">
+        <span class="feat-cat">${b.category}</span>
+        ${isNew ? '<span style="display:inline-block;background:var(--red);color:#fff;font-size:.65rem;font-weight:700;padding:.15rem .5rem;border-radius:4px;margin-bottom:.5rem">🔥 YENİ</span>' : ''}
+        <h2>${b.title}</h2>
+        <p>${b.excerpt||''}</p>
+        <div class="feat-meta">
+          <span>📅 ${fmtDate(b.publishedAt||b.createdAt)}</span>
+          <span>👁 ${b.views||0} baxış</span>
+          ${b.tags&&b.tags.length ? `<span>🏷 ${b.tags.slice(0,3).join(', ')}</span>` : ''}
+        </div>
+        <span class="read-btn">Oxu →</span>
+      </div>
+    </div>`;
+  }
+
+  function cardHTML(b, i) {
+    const emoji = EMOJIS[b.category] || '📖';
+    const isNew = daysDiff(b.publishedAt||b.createdAt) < 7;
+    return `
+    <div class="card" onclick="openPost('${b.id}')" style="animation-delay:${i*.05}s">
+      <div class="card-thumb">
+        <span class="cat-chip">${b.category}</span>
+        ${isNew ? '<span class="new-chip">YENİ</span>' : ''}
+        ${b.coverImage ? `<img src="${b.coverImage}" alt="${esc(b.title)}">` : `<span style="position:relative;z-index:1">${emoji}</span>`}
+      </div>
+      <div class="card-body">
+        <h3>${b.title}</h3>
+        <p>${b.excerpt||''}</p>
+        <div class="card-foot">
+          <div>
+            <div class="card-date">📅 ${fmtDate(b.publishedAt||b.createdAt)}</div>
+            <div class="card-views">👁 ${b.views||0}</div>
+          </div>
+          <div class="arrow-btn">
+            <svg width="13" height="13" fill="none" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="#0C1A2E" stroke-width="2.5" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>`;
+  }
+
+  function openPost(id) {
+    const b = all.find(x => x.id === id);
+    if (!b) return;
+    b.views = (b.views||0) + 1;
+    const win = window.open('', '_blank');
+    win.document.write(postPage(b));
+    win.document.close();
+  }
+
+  function postPage(b) {
+    const emoji = EMOJIS[b.category] || '📖';
+    const tags = (b.tags||[]).map(t => `<span class="tag">${t}</span>`).join('');
+    return `<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>${b.title} — EduCat Blog</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--ink:#0C1A2E;--ink2:#1E3A5F;--gold:#C8962E;--gold2:#F5A623;--cream:#FDFAF5;--warm:#F2EDE4;--border:#E0D8CC;--muted:#8A8070;--serif:'Cormorant Garamond',Georgia,serif;--sans:'Outfit',system-ui,sans-serif}
+body{font-family:var(--sans);background:var(--cream);color:var(--ink)}
+nav{background:var(--ink);border-bottom:2px solid var(--gold);padding:0 1.5rem}
+.ni{max-width:820px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:60px}
+.nl{color:#fff;font-family:var(--serif);font-size:1.25rem;text-decoration:none;font-weight:700}
+.back{color:rgba(255,255,255,.6);text-decoration:none;font-size:.8rem;display:flex;align-items:center;gap:.4rem;transition:color .2s}
+.back:hover{color:var(--gold2)}
+.hero{background:var(--ink);padding:3.5rem 1.5rem;text-align:center;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:100px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.hero-em{font-size:4.5rem;margin-bottom:1rem}
+.hcat{display:inline-block;background:rgba(200,150,46,.15);border:1px solid rgba(200,150,46,.4);color:var(--gold2);font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.25rem .9rem;border-radius:4px;margin-bottom:1.2rem;border-left:3px solid var(--gold)}
+.hero h1{font-family:var(--serif);font-size:clamp(1.9rem,4.5vw,3rem);color:#fff;max-width:720px;margin:0 auto 1.2rem;line-height:1.15;font-weight:700}
+.meta{display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;font-size:.75rem;color:rgba(255,255,255,.5)}
+article{max-width:780px;margin:3rem auto 2rem;padding:0 1.5rem}
+.article-inner{background:#fff;border:1px solid var(--border);border-radius:14px;padding:2.8rem;box-shadow:0 4px 24px rgba(12,26,46,.06)}
+.article-inner>*+*{margin-top:1.3rem}
+.article-inner h2{font-family:var(--serif);font-size:1.45rem;color:var(--ink);margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border)}
+.article-inner h3{font-family:var(--serif);font-size:1.15rem;color:var(--ink2);margin-top:1.5rem}
+.article-inner p{line-height:1.85;font-size:.97rem;color:#2C3E50}
+.article-inner ul,.article-inner ol{padding-left:1.6rem;line-height:1.8;color:#2C3E50}
+.article-inner li{margin-bottom:.4rem}
+.article-inner blockquote{border-left:3px solid var(--gold);padding:1rem 1.5rem;background:rgba(200,150,46,.06);border-radius:0 8px 8px 0;color:var(--ink2);font-style:italic;margin:1.5rem 0}
+.article-inner a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+.article-inner img{max-width:100%;border-radius:10px;margin:1rem 0;border:1px solid var(--border)}
+.tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:2rem;padding-top:1.2rem;border-top:1px solid var(--border)}
+.tag{background:var(--warm);color:var(--muted);border:1px solid var(--border);padding:.2rem .7rem;border-radius:4px;font-size:.72rem;font-weight:500}
+.cta-box{background:var(--ink);border-radius:14px;padding:2.5rem;text-align:center;margin:2rem auto;max-width:780px;position:relative;overflow:hidden}
+.cta-box::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 100%,rgba(200,150,46,.15),transparent);pointer-events:none}
+.cta-box h3{font-family:var(--serif);font-size:1.7rem;color:#fff;margin-bottom:.7rem;font-weight:700}
+.cta-box p{color:rgba(255,255,255,.6);margin-bottom:1.5rem;font-size:.9rem;max-width:400px;margin-left:auto;margin-right:auto}
+.cta-btn{background:var(--gold);color:var(--ink);font-weight:700;padding:.7rem 2rem;border-radius:7px;text-decoration:none;display:inline-block;font-family:var(--sans);transition:background .2s}
+.cta-btn:hover{background:var(--gold2)}
+footer{text-align:center;padding:2rem;color:var(--muted);font-size:.78rem;border-top:1px solid var(--border)}
+footer a{color:var(--gold);text-decoration:none}
+@media(max-width:600px){.article-inner{padding:1.5rem 1.2rem}.cta-box{margin:1.5rem;padding:2rem 1.5rem}}
+</style>
+</head>
+<body>
+<nav><div class="ni">
+  <a href="https://educatcompany.com/" class="nl">EduCat</a>
+  <a href="javascript:window.close()" class="back">← Bloga Qayıt</a>
+</div></nav>
+<div class="hero">
+  <div class="hero-em">${emoji}</div>
+  <div class="hcat">${b.category}</div>
+  <h1>${b.title}</h1>
+  <div class="meta">
+    <span>📅 ${fmtDate(b.publishedAt||b.createdAt)}</span>
+    <span>👁 ${b.views||0} baxış</span>
+    ${b.tags&&b.tags.length?`<span>🏷 ${b.tags.join(', ')}</span>`:''}
+  </div>
+</div>
+<article>
+  <div class="article-inner">
+    ${b.content}
+    ${tags?`<div class="tags">${tags}</div>`:''}
+  </div>
+</article>
+<div class="cta-box" style="margin:0 auto 3rem;max-width:780px;margin-left:auto;margin-right:auto;padding-left:1.5rem;padding-right:1.5rem">
+  <div style="max-width:500px;margin:0 auto">
+    <h3>Xaricdə Oxumaq İstəyirsən?</h3>
+    <p>EduCat komandası viza, sənəd və qəbul prosesinin hamısında yanında olur.</p>
+    <a href="https://educatcompany.com/#elaqe" class="cta-btn" target="_blank">Pulsuz Konsultasiya Al →</a>
+  </div>
+</div>
+<footer><p>© 2025 <a href="https://educatcompany.com/">EduCat</a> — Xaricdə Təhsil Konsaltinq</p></footer>
+</body></html>`;
+  }
+
+  function fmtDate(iso) {
+    if (!iso) return '';
+    const d = new Date(iso);
+    return d.toLocaleDateString('az-AZ', { day:'numeric', month:'long', year:'numeric' });
+  }
+  function daysDiff(iso) { return (Date.now() - new Date(iso)) / 86400000; }
+  function esc(s) { return (s||'').replace(/"/g,'&quot;'); }
+
+  init();
+</script>
+</body>
+</html>
