@@ -1,3 +1,20 @@
 {
-  "blogs": []
+  "blogs": [
+    {
+      "id": "blog_1775341127388_bufjbe",
+      "title": "aaaaaaaaaaaa",
+      "content": "ksmdlskdmlskcm",
+      "excerpt": "dsdsdsd",
+      "category": "Visa",
+      "coverImage": "",
+      "tags": [
+        "dscsdcsdcsd"
+      ],
+      "published": false,
+      "createdAt": "2026-04-04T22:18:47.388Z",
+      "updatedAt": "2026-04-04T22:18:47.388Z",
+      "publishedAt": null,
+      "views": 0
+    }
+  ]
 }
