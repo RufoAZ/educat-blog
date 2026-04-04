@@ -1,0 +1,32 @@
+{
+  "blogs": [
+    {
+      "id": "blog_1700000000000_sample1",
+      "title": "Türkiyədə Universitetə Necə Daxil Olunur?",
+      "excerpt": "Türkiyə universitetlərinə qəbul prosesi, lazımi sənədlər və ən çox seçilən ixtisaslar haqqında ətraflı məlumat.",
+      "content": "<p>Türkiyə universitetlərinə qəbul prosesi bir neçə mərhələdən ibarətdir. Bu yazıda sizə addım-addım bütün prosesi izah edəcəyik.</p><h2>Lazımi Sənədlər</h2><ul><li>Attestat (apostil edilmiş)</li><li>Pasport surəti</li><li>Foto</li><li>TYS sertifikatı (Türk dili)</li></ul><h2>Qəbul Prosesi</h2><p>Sənədlər hazır olduqdan sonra universitet seçimi həyata keçirilir. EduCat komandası sizə 30+ tərəfdaş universitetimiz arasından ən uyğununu tapır.</p><p>Müraciət müddəti adətən İyul-Sentyabr ayları arasındadır.</p>",
+      "category": "Türkiyə",
+      "coverImage": "",
+      "tags": ["türkiyə", "qəbul", "sənədlər"],
+      "published": true,
+      "createdAt": "2024-01-15T10:00:00.000Z",
+      "updatedAt": "2024-01-15T10:00:00.000Z",
+      "publishedAt": "2024-01-15T10:00:00.000Z",
+      "views": 47
+    },
+    {
+      "id": "blog_1700000000001_sample2",
+      "title": "Polşada Qrant İmkanları 2025",
+      "excerpt": "Polşa hökuməti tərəfindən təqdim olunan qrant proqramları və Azərbaycan tələbələri üçün imkanlar.",
+      "content": "<p>Polşa Avropa İttifaqının ən sürətlə inkişaf edən ölkələrindən biridir. Azərbaycan tələbələri üçün burada əla qrant imkanları mövcuddur.</p><h2>Əsas Qrant Proqramları</h2><p>Polşa hökuməti hər il xarici tələbələrə çoxsaylı qrantlar təqdim edir.</p><h2>Müraciət Şərtləri</h2><ul><li>Yüksək akademik nəticələr</li><li>İngilis dili biliyi (B2 səviyyə)</li><li>Motivasiya məktubu</li></ul>",
+      "category": "Polşa",
+      "coverImage": "",
+      "tags": ["polşa", "qrant", "avropa"],
+      "published": true,
+      "createdAt": "2024-02-01T09:00:00.000Z",
+      "updatedAt": "2024-02-01T09:00:00.000Z",
+      "publishedAt": "2024-02-01T09:00:00.000Z",
+      "views": 31
+    }
+  ]
+}
